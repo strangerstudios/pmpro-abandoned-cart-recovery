@@ -21,6 +21,7 @@ require_once( PMPROACR_DIR . '/includes/admin.php' );
 require_once( PMPROACR_DIR . '/includes/crons.php' );
 require_once( PMPROACR_DIR . '/includes/emails.php' );
 require_once( PMPROACR_DIR . '/includes/checkout.php' );
+require_once( PMPROACR_DIR . '/includes/level-settings.php' );
 require_once( PMPROACR_DIR . '/includes/upgradecheck.php' );
 require_once( PMPROACR_DIR . '/classes/class-pmproacr-recovery-attempts-list-table.php' );
 
