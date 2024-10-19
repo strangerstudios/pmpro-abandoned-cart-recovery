@@ -50,6 +50,15 @@ function pmproacr_cron_process_recovery_attempts() {
 	 */
 	$seconds_until_lost       = (int) apply_filters( 'pmproacr_time_until_lost', DAY_IN_SECONDS * 7 );
 
+	// Get all levels that have abandoned cart recovery enabled.
+	$enabled_levels = $wpdb->get_col(
+		$wpdb->prepare(
+			"SELECT DISTINCT pmpro_membership_level_id
+			FROM $wpdb->pmpro_membership_levelmeta
+			WHERE meta_key = 'pmproacr_enabled_for_level' AND meta_value = 'yes'"
+		)
+	);
+
 	// Send the first reminder.
 	// Get all token orders older than the current time - seconds_until_reminder_1 but after the last timestamp checked.
 	// To help with performance and to avoid confusing customers, let's limit the "last timestamp checked" to at most $seconds_until_reminder_1 * 4 in the past.
@@ -61,7 +70,7 @@ function pmproacr_cron_process_recovery_attempts() {
 		$wpdb->prepare(
 			"SELECT o.id, o.user_id, o.membership_id, o.total, o.timestamp
 			FROM $wpdb->pmpro_membership_orders o
-			WHERE o.timestamp > %s AND o.timestamp < %s AND o.status = 'token' AND o.total > 0
+			WHERE o.timestamp > %s AND o.timestamp < %s AND o.status = 'token' AND o.total > 0 AND o.membership_id IN(" . implode( ',', $enabled_levels ) . ")
 			ORDER BY o.timestamp ASC",
 			$reminder_1_oldest_datetime,
 			$reminder_1_newest_datetime
@@ -260,4 +269,4 @@ register_activation_hook( PMPROACR_BASE_FILE, 'pmproacr_activation' );
 function pmproacr_deactivation() {	
 	wp_clear_scheduled_hook( 'pmproacr_cron_process_recovery_attempts' );
 }
-register_deactivation_hook( PMPROACR_BASE_FILE, 'pmpro_deacpmproacr_deactivationtivation' );
+register_deactivation_hook( PMPROACR_BASE_FILE, 'pmproacr_deactivation' );
