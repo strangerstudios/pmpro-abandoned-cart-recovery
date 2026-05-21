@@ -26,6 +26,9 @@ require_once( PMPROACR_DIR . '/includes/level-settings.php' );
 require_once( PMPROACR_DIR . '/includes/opt-out.php' );
 require_once( PMPROACR_DIR . '/includes/privacy.php' );
 require_once( PMPROACR_DIR . '/includes/upgradecheck.php' );
+require_once( PMPROACR_DIR . '/includes/resume-bar.php' );
+require_once( PMPROACR_DIR . '/includes/resume-bar-save.php' );
+require_once( PMPROACR_DIR . '/includes/resume-bar-render.php' );
 require_once( PMPROACR_DIR . '/classes/class-pmproacr-recovery-attempts-list-table.php' );
 
 /**

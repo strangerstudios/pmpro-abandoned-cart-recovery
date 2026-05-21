@@ -18,6 +18,7 @@ The Abandoned Cart Recovery Add On helps maximize your membership site's revenue
 * Fully customizable email templates for each reminder with opt-out options.
 * Detailed reporting of recovery attempts, recovered orders, and recovered revenue.
 * Privacy-focused integration with your site's existing privacy policy.
+* Optional Resume Checkout Bar: capture the visitor's cart on the checkout page and show a popup plus sticky bottom bar on other pages that links them back to checkout with their level, discount code, and payment plan pre-applied.
 
 == Installation ==
 
@@ -31,6 +32,9 @@ The Abandoned Cart Recovery Add On helps maximize your membership site's revenue
 Please post it in the issues section of GitHub and we'll fix it as soon as we can. Thanks for helping. https://github.com/strangerstudios/pmpro-abandoned-cart-recovery/issues
 
 == Changelog ==
+= TBD =
+* FEATURE: New "Resume Checkout Bar". When enabled, captures level/discount/payment plan when a visitor reaches the checkout page, then shows a popup and sticky bottom bar on subsequent pages linking back to checkout with everything pre-filled. Saved to cookie + user meta. Cleared on successful checkout. Settings live on Memberships > Abandoned Cart Recovery.
+
 = 1.0.3 - 2026-05-01 =
 * ENHANCEMENT: Recovery reminder emails are now scheduled via Action Scheduler when running PMPro 3.5 or newer. Sites on older versions continue to use WP-Cron. #17 (@andrewlimaza)
 * ENHANCEMENT: Updated the default subject and body for the three recovery reminder email templates to use Liquid (`{{ variable }}`) syntax on PMPro 3.7 and newer. Older PMPro versions continue to receive the legacy `!!variable!!` defaults. #18 (@dparker1005)

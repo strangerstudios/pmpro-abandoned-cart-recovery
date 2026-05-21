@@ -32,6 +32,7 @@ function pmproacr_admin_page() {
 	?>
 	<h1><?php esc_html_e( 'Abandoned Cart Recovery', 'pmpro-abandoned-cart-recovery' ); ?></h1>
 	<?php
+	pmproacr_resume_render_settings_section();
 	$recovery_attempts_list_table->display();
 	require_once PMPRO_DIR . '/adminpages/admin_footer.php';
 }
