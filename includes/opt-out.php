@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Get the key used to verify an opt-out link for a user.
  *
- * @since TBD
+ * @since 1.0.4
  *
  * @param WP_User $user The user to get the opt-out key for.
  * @return string The opt-out key.
@@ -19,7 +19,7 @@ function pmproacr_get_opt_out_key( $user ) {
 /**
  * Get the URL that a user can visit to opt out of abandoned cart emails.
  *
- * @since TBD
+ * @since 1.0.4
  *
  * @param WP_User $user The user to get the opt-out URL for.
  * @return string The opt-out URL.

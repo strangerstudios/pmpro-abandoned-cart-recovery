@@ -3,7 +3,7 @@
  * Plugin Name: Paid Memberships Pro - Abandoned Cart Recovery
  * Plugin URI: https://www.paidmembershipspro.com/add-ons/abandoned-cart-recovery/
  * Description: Recover lost revenue by capturing abandoned carts and following up with customers to complete their purchase.
- * Version: 1.0.3
+ * Version: 1.0.4
  * Author: Paid Memberships Pro
  * Author URI: https://www.paidmembershipspro.com
  * Text Domain: pmpro-abandoned-cart-recovery
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Definitions
-define( 'PMPROACR_VERSION', '1.0.3' );
+define( 'PMPROACR_VERSION', '1.0.4' );
 define( 'PMPROACR_BASE_FILE', __FILE__ );
 define( 'PMPROACR_DIR', dirname( __FILE__ ) );
 define( 'PMPROACR_BASENAME', plugin_basename( __FILE__ ) );

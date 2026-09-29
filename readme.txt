@@ -2,8 +2,8 @@
 Contributors: strangerstudios
 Tags: paid memberships pro, pmpro, cart, abandoned, recovery
 Requires at least: 5.4
-Tested up to: 6.9
-Stable tag: 1.0.3
+Tested up to: 7.1
+Stable tag: 1.0.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -31,6 +31,10 @@ The Abandoned Cart Recovery Add On helps maximize your membership site's revenue
 Please post it in the issues section of GitHub and we'll fix it as soon as we can. Thanks for helping. https://github.com/strangerstudios/pmpro-abandoned-cart-recovery/issues
 
 == Changelog ==
+= 1.0.4 - 2026-09-29 =
+* SECURITY: Opt-out links in abandoned cart reminder emails now include a signed key, and opt-out requests without a valid key are rejected. Opt-out links in emails sent before this update will no longer work. #24 (@dparker1005)
+* SECURITY: Added direct file access protection and hardened request handling. #23 (@dparker1005)
+
 = 1.0.3 - 2026-05-01 =
 * ENHANCEMENT: Recovery reminder emails are now scheduled via Action Scheduler when running PMPro 3.5 or newer. Sites on older versions continue to use WP-Cron. #17 (@andrewlimaza)
 * ENHANCEMENT: Updated the default subject and body for the three recovery reminder email templates to use Liquid (`{{ variable }}`) syntax on PMPro 3.7 and newer. Older PMPro versions continue to receive the legacy `!!variable!!` defaults. #18 (@dparker1005)
