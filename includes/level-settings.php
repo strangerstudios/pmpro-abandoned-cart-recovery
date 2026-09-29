@@ -1,11 +1,16 @@
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Add options to level settings to enable Abandoned Cart Recovery.
  *
  * @since 0.1
  */
 function pmproacr_membership_level_before_content_settings() {
-	$edit_level_id = $_REQUEST['edit'];
+	$edit_level_id = isset( $_REQUEST['edit'] ) ? intval( $_REQUEST['edit'] ) : 0; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only display on the PMPro edit level page.
 	$enabled = 'yes' === get_pmpro_membership_level_meta( $edit_level_id, 'pmproacr_enabled_for_level', true );
 	$acr_checked = $enabled ? ' checked' : '';
 
@@ -53,7 +58,7 @@ add_action( 'pmpro_membership_level_before_content_settings', 'pmproacr_membersh
  * @return void
  */
 function pmproacr_save_membership_level( $save_id ) {
-	$enabled = empty( $_REQUEST['pmproacr_enabled_for_level'] ) ? 'no' : 'yes';
+	$enabled = empty( $_REQUEST['pmproacr_enabled_for_level'] ) ? 'no' : 'yes'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verified by PMPro core before pmpro_save_membership_level fires.
 
 	update_pmpro_membership_level_meta( $save_id, 'pmproacr_enabled_for_level', $enabled );
 }

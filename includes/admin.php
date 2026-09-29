@@ -1,5 +1,11 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+// phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Queries on PMPro and Abandoned Cart Recovery custom tables.
+
 /**
  * Add the Abandoned Cart Recovery settings page.
  *

@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Get the key used to verify an opt-out link for a user.
  *
@@ -38,14 +42,14 @@ function pmproacr_get_opt_out_url( $user ) {
 function pmproacr_process_opt_out() {
 	global $wpdb;
 
-	if ( ! isset( $_REQUEST['pmproacr_opt_out'] ) ) {
+	if ( ! isset( $_REQUEST['pmproacr_opt_out'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Opt-out links are verified with the signed opt-out key below.
 		return;
 	}
 
 	// $_REQUEST['pmproacr_opt_out'] is the email address to opt out.
 	// $_REQUEST['pmproacr_opt_out_key'] verifies that the link came from an email sent to that user.
-	$email = is_string( $_REQUEST['pmproacr_opt_out'] ) ? sanitize_email( wp_unslash( $_REQUEST['pmproacr_opt_out'] ) ) : '';
-	$key   = ( isset( $_REQUEST['pmproacr_opt_out_key'] ) && is_string( $_REQUEST['pmproacr_opt_out_key'] ) ) ? sanitize_text_field( wp_unslash( $_REQUEST['pmproacr_opt_out_key'] ) ) : '';
+	$email = is_string( $_REQUEST['pmproacr_opt_out'] ) ? sanitize_email( wp_unslash( $_REQUEST['pmproacr_opt_out'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Opt-out links are verified with the signed opt-out key below.
+	$key   = ( isset( $_REQUEST['pmproacr_opt_out_key'] ) && is_string( $_REQUEST['pmproacr_opt_out_key'] ) ) ? sanitize_text_field( wp_unslash( $_REQUEST['pmproacr_opt_out_key'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Opt-out links are verified with the signed opt-out key below.
 	$user  = empty( $email ) ? false : get_user_by( 'email', $email );
 	if ( ! $user || empty( $key ) || ! hash_equals( pmproacr_get_opt_out_key( $user ), $key ) ) {
 		// Show a banner that the opt-out has failed.
@@ -57,7 +61,7 @@ function pmproacr_process_opt_out() {
 	update_user_meta( $user->ID, 'pmproacr_opt_out', 11 );
 
 	// Mark all in-progress recovery attempts as lost.
-	$wpdb->update(
+	$wpdb->update( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Custom table.
 		$wpdb->pmproacr_recovery_attempts,
 		array( 'status' => 'lost' ),
 		array( 'user_id' => $user->ID, 'status' => 'in_progress' )
@@ -75,7 +79,7 @@ add_action( 'wp', 'pmproacr_process_opt_out' );
  */
 function pmproacr_show_opt_out_banner() {
 	// $_REQUEST['pmproacr_opt_out'] is the email address to opt out.
-	$email = stripslashes( sanitize_email( $_REQUEST['pmproacr_opt_out'] ) );
+	$email = sanitize_email( wp_unslash( $_REQUEST['pmproacr_opt_out'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.InputNotValidated -- Display only; this callback is only hooked after pmproacr_process_opt_out() confirmed the value is set.
 
 	// Show the banner.
 	?>

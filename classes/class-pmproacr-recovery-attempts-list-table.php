@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 if ( ! class_exists( 'WP_List_Table' ) ) {
 	require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
 }
@@ -194,8 +198,8 @@ class PMProACR_Recovery_Attempts_List_Table extends WP_List_Table {
 		global $wpdb;
 
 		// some vars for pagination
-		if( isset( $_REQUEST['paged'] ) ) {
-			$pn = intval( $_REQUEST['paged'] );
+		if( isset( $_REQUEST['paged'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only list table pagination.
+			$pn = intval( $_REQUEST['paged'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only list table pagination.
 		} else {
 			$pn = 1;
 		}
@@ -213,13 +217,13 @@ class PMProACR_Recovery_Attempts_List_Table extends WP_List_Table {
 
 		if ( ! $count ) {
 
-			if( isset( $_REQUEST['orderby'] ) ) {
-				$orderby = $this->sanitize_orderby( sanitize_text_field( $_REQUEST['orderby'] ) );
+			if( isset( $_REQUEST['orderby'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only list table sorting.
+				$orderby = $this->sanitize_orderby( sanitize_text_field( wp_unslash( $_REQUEST['orderby'] ) ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only list table sorting.
 			} else {
 				$orderby = 'id';
 			}
 
-			if( isset( $_REQUEST['order'] ) && $_REQUEST['order'] == 'asc' ) {
+			if( isset( $_REQUEST['order'] ) && $_REQUEST['order'] == 'asc' ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only list table sorting.
 				$order = 'ASC';
 			} else {
 				$order = 'DESC';
@@ -232,9 +236,9 @@ class PMProACR_Recovery_Attempts_List_Table extends WP_List_Table {
 		}
 
 		if( $count ) {
-			$sql_table_data = $wpdb->get_var( $sqlQuery );
+			$sql_table_data = $wpdb->get_var( $sqlQuery ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Static query on a custom table.
 		} else {
-			$sql_table_data = $wpdb->get_results( $sqlQuery );
+			$sql_table_data = $wpdb->get_results( $sqlQuery ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Custom table; orderby is whitelisted by sanitize_orderby(), order is ASC/DESC, and LIMIT values are integers.
 		}
 
 		return $sql_table_data;

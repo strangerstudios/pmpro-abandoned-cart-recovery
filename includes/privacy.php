@@ -1,4 +1,9 @@
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /** 
  * Add suggested Privacy Policy language for Paid Memberships Pro - Abandoned Cart Recovery.
  *

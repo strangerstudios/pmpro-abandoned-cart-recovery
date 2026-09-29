@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * After a checkout is completed, update any in_progress recovery attempts to recovered.
  *
@@ -17,7 +21,7 @@ function pmproacr_after_checkout( $user_id, $order ) {
 	}
 
 	// Update the recovery attempt to recovered.
-	$wpdb->update(
+	$wpdb->update( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Custom table.
 		$wpdb->pmproacr_recovery_attempts,
 		array(
 			'status'             => 'recovered',

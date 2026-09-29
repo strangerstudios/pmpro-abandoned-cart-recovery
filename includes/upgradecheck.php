@@ -1,4 +1,9 @@
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Run any necessary upgrades to the DB.
  */
@@ -9,7 +14,7 @@ function pmproacr_check_for_upgrades() {
 	global $wpdb;
 	$wpdb->hide_errors();
 	$wpdb->pmproacr_recovery_attempts = $wpdb->prefix . 'pmproacr_recovery_attempts';
-	$table_exists = $wpdb->query("SHOW TABLES LIKE '" . $wpdb->pmproacr_recovery_attempts . "'");
+	$table_exists = $wpdb->query("SHOW TABLES LIKE '" . $wpdb->pmproacr_recovery_attempts . "'"); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Checks whether the custom table exists; table name is built from the site prefix.
 	if(!$table_exists)
 		$db_version = 0;
 

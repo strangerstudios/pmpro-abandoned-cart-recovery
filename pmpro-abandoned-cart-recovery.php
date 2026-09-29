@@ -11,6 +11,10 @@
  * License: GPL-3.0
 */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 // Definitions
 define( 'PMPROACR_VERSION', '1.0.3' );
 define( 'PMPROACR_BASE_FILE', __FILE__ );
