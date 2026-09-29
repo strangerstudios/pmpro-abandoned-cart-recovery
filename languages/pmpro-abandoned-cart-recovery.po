@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: Paid Memberships Pro - Abandoned Cart Recovery 1.0.3\n"
+"Project-Id-Version: Paid Memberships Pro - Abandoned Cart Recovery 1.0.4\n"
 "Report-Msgid-Bugs-To: info@paidmembershipspro.com\n"
 "Last-Translator: Paid Memberships Pro <info@paidmembershipspro.com>\n"
 "Language-Team: Paid Memberships Pro <info@paidmembershipspro.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-01T18:08:05+00:00\n"
+"POT-Creation-Date: 2026-09-29T14:57:51+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: pmpro-abandoned-cart-recovery\n"
@@ -40,66 +40,82 @@ msgid "https://www.paidmembershipspro.com"
 msgstr ""
 
 #: classes/class-pmproacr-recovery-attempts-list-table.php:52
+#: classes/class-pmproacr-recovery-attempts-list-table.php:56
 msgid "Recovery attempts per page"
 msgstr ""
 
 #: classes/class-pmproacr-recovery-attempts-list-table.php:133
+#: classes/class-pmproacr-recovery-attempts-list-table.php:137
 msgid "ID"
 msgstr ""
 
 #: classes/class-pmproacr-recovery-attempts-list-table.php:134
+#: classes/class-pmproacr-recovery-attempts-list-table.php:138
 msgid "User"
 msgstr ""
 
 #: classes/class-pmproacr-recovery-attempts-list-table.php:135
+#: classes/class-pmproacr-recovery-attempts-list-table.php:139
 msgid "Token Order"
 msgstr ""
 
 #: classes/class-pmproacr-recovery-attempts-list-table.php:136
+#: classes/class-pmproacr-recovery-attempts-list-table.php:140
 msgid "Status"
 msgstr ""
 
 #: classes/class-pmproacr-recovery-attempts-list-table.php:137
+#: classes/class-pmproacr-recovery-attempts-list-table.php:141
 msgid "Reminder 1"
 msgstr ""
 
 #: classes/class-pmproacr-recovery-attempts-list-table.php:138
+#: classes/class-pmproacr-recovery-attempts-list-table.php:142
 msgid "Reminder 2"
 msgstr ""
 
 #: classes/class-pmproacr-recovery-attempts-list-table.php:139
+#: classes/class-pmproacr-recovery-attempts-list-table.php:143
 msgid "Reminder 3"
 msgstr ""
 
 #: classes/class-pmproacr-recovery-attempts-list-table.php:140
+#: classes/class-pmproacr-recovery-attempts-list-table.php:144
 msgid "Recovered Order"
 msgstr ""
 
 #: classes/class-pmproacr-recovery-attempts-list-table.php:183
+#: classes/class-pmproacr-recovery-attempts-list-table.php:187
 msgid "No recovery attempts found."
 msgstr ""
 
 #: classes/class-pmproacr-recovery-attempts-list-table.php:291
+#: classes/class-pmproacr-recovery-attempts-list-table.php:295
 msgid "deleted"
 msgstr ""
 
 #: classes/class-pmproacr-recovery-attempts-list-table.php:293
+#: classes/class-pmproacr-recovery-attempts-list-table.php:297
 msgid "none"
 msgstr ""
 
 #: classes/class-pmproacr-recovery-attempts-list-table.php:313
+#: classes/class-pmproacr-recovery-attempts-list-table.php:317
 msgid "In Progress"
 msgstr ""
 
 #: classes/class-pmproacr-recovery-attempts-list-table.php:315
+#: classes/class-pmproacr-recovery-attempts-list-table.php:319
 msgid "Recovered"
 msgstr ""
 
 #: classes/class-pmproacr-recovery-attempts-list-table.php:317
+#: classes/class-pmproacr-recovery-attempts-list-table.php:321
 msgid "Lost"
 msgstr ""
 
 #: classes/class-pmproacr-recovery-attempts-list-table.php:319
+#: classes/class-pmproacr-recovery-attempts-list-table.php:323
 msgid "Unknown"
 msgstr ""
 
@@ -107,23 +123,30 @@ msgstr ""
 #: classes/class-pmproacr-recovery-attempts-list-table.php:348
 #: classes/class-pmproacr-recovery-attempts-list-table.php:362
 #: classes/class-pmproacr-recovery-attempts-list-table.php:375
+#: classes/class-pmproacr-recovery-attempts-list-table.php:337
+#: classes/class-pmproacr-recovery-attempts-list-table.php:352
+#: classes/class-pmproacr-recovery-attempts-list-table.php:366
+#: classes/class-pmproacr-recovery-attempts-list-table.php:379
 msgid "&#8212;"
 msgstr ""
 
 #. translators: 1: level name, 2: total
 #: classes/class-pmproacr-recovery-attempts-list-table.php:389
+#: classes/class-pmproacr-recovery-attempts-list-table.php:393
 #, php-format
 msgid "Level: %1$s (%2$s)"
 msgstr ""
 
 #: classes/class-pmproacr-recovery-attempts-list-table.php:395
 #: classes/class-pmproacr-recovery-attempts-list-table.php:399
+#: classes/class-pmproacr-recovery-attempts-list-table.php:403
 msgid "View Order"
 msgstr ""
 
 #. translators: %1$s is the date and %2$s is the time.
 #: classes/class-pmproacr-recovery-attempts-list-table.php:407
 #: classes/class-pmproacr-recovery-attempts-list-table.php:411
+#: classes/class-pmproacr-recovery-attempts-list-table.php:415
 #, php-format
 msgid "%1$s at %2$s"
 msgstr ""
@@ -132,41 +155,52 @@ msgstr ""
 #: includes/admin.php:12
 #: includes/admin.php:33
 #: includes/privacy.php:14
+#: includes/admin.php:17
+#: includes/admin.php:18
+#: includes/admin.php:39
+#: includes/privacy.php:19
 msgid "Abandoned Cart Recovery"
 msgstr ""
 
 #: includes/admin.php:40
 #: includes/admin.php:48
+#: includes/admin.php:54
 msgid "Abandoned Cart Recoveries"
 msgstr ""
 
 #: includes/admin.php:56
 #: includes/admin.php:69
+#: includes/admin.php:75
 msgid "Recovered Revenue"
 msgstr ""
 
 #: includes/admin.php:57
 #: includes/admin.php:70
+#: includes/admin.php:76
 msgid "Recovered Orders"
 msgstr ""
 
 #: includes/admin.php:58
 #: includes/admin.php:71
+#: includes/admin.php:77
 msgid "Recovery Attempts"
 msgstr ""
 
 #: includes/admin.php:63
 #: includes/admin.php:76
+#: includes/admin.php:82
 msgid "Past 30 Days"
 msgstr ""
 
 #: includes/admin.php:69
 #: includes/admin.php:82
+#: includes/admin.php:88
 msgid "Past 12 Months"
 msgstr ""
 
 #: includes/admin.php:75
 #: includes/admin.php:88
+#: includes/admin.php:94
 msgid "All Time"
 msgstr ""
 
@@ -174,6 +208,8 @@ msgstr ""
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:48
 #: includes/emails.php:31
 #: includes/emails.php:40
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:53
+#: includes/emails.php:44
 msgid "Abandoned Cart Recovery - Reminder 1"
 msgstr ""
 
@@ -181,6 +217,8 @@ msgstr ""
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:70
 #: includes/emails.php:32
 #: includes/emails.php:41
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:75
+#: includes/emails.php:45
 msgid "Your membership is waiting."
 msgstr ""
 
@@ -190,6 +228,8 @@ msgstr ""
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:90
 #: includes/emails.php:42
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:92
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:97
+#: includes/emails.php:46
 msgid "We noticed you started signing up for !!membership_level_name!! membership but did not complete the checkout process."
 msgstr ""
 
@@ -209,6 +249,8 @@ msgstr ""
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:59
 #: includes/emails.php:38
 #: includes/emails.php:47
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:64
+#: includes/emails.php:51
 msgid "This email is sent as the first reminder to complete a purchase."
 msgstr ""
 
@@ -216,6 +258,8 @@ msgstr ""
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:48
 #: includes/emails.php:42
 #: includes/emails.php:51
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:53
+#: includes/emails.php:55
 msgid "Abandoned Cart Recovery - Reminder 2"
 msgstr ""
 
@@ -224,6 +268,8 @@ msgstr ""
 #: includes/emails.php:43
 #: includes/emails.php:52
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:72
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:77
+#: includes/emails.php:56
 msgid "Reminder: Your !!sitename!! membership is waiting."
 msgstr ""
 
@@ -233,6 +279,8 @@ msgstr ""
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:90
 #: includes/emails.php:53
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:96
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:101
+#: includes/emails.php:57
 msgid "It looks like you may have forgotten to complete checkout for the !!membership_level_name!! membership at !!sitename!!."
 msgstr ""
 
@@ -249,6 +297,12 @@ msgstr ""
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:104
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-3.php:89
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-3.php:93
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:103
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:109
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-3.php:94
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-3.php:98
+#: includes/emails.php:59
+#: includes/emails.php:70
 msgid "Complete Your Purchase Now"
 msgstr ""
 
@@ -262,6 +316,8 @@ msgstr ""
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:59
 #: includes/emails.php:49
 #: includes/emails.php:58
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:64
+#: includes/emails.php:62
 msgid "This email is sent as the second reminder to complete a purchase."
 msgstr ""
 
@@ -269,6 +325,8 @@ msgstr ""
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-3.php:48
 #: includes/emails.php:53
 #: includes/emails.php:62
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-3.php:53
+#: includes/emails.php:66
 msgid "Abandoned Cart Recovery - Reminder 3"
 msgstr ""
 
@@ -277,6 +335,8 @@ msgstr ""
 #: includes/emails.php:54
 #: includes/emails.php:63
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-3.php:72
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-3.php:77
+#: includes/emails.php:67
 msgid "Final Reminder: Complete membership checkout at !!sitename!! today."
 msgstr ""
 
@@ -285,6 +345,8 @@ msgstr ""
 #: includes/emails.php:55
 #: includes/emails.php:64
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-3.php:87
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-3.php:92
+#: includes/emails.php:68
 msgid "This is your final reminder to complete your !!membership_level_name!! membership checkout at !!sitename!!."
 msgstr ""
 
@@ -292,27 +354,34 @@ msgstr ""
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-3.php:59
 #: includes/emails.php:58
 #: includes/emails.php:67
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-3.php:64
+#: includes/emails.php:71
 msgid "This email is sent as the third reminder to complete a purchase."
 msgstr ""
 
 #: includes/level-settings.php:24
+#: includes/level-settings.php:29
 msgid "Abandoned Cart Recovery Settings"
 msgstr ""
 
 #: includes/level-settings.php:32
+#: includes/level-settings.php:37
 msgid "Enable Abandoned Cart Recovery"
 msgstr ""
 
 #: includes/level-settings.php:36
+#: includes/level-settings.php:41
 msgid "Enable Abandoned Cart Recovery for this level."
 msgstr ""
 
 #: includes/level-settings.php:37
+#: includes/level-settings.php:42
 msgid "Check the box to activate abandoned cart recovery for this level. Emails will be sent 1 hour, 1 day, and 1 week after the cart is abandoned. You can customize these emails on the Settings > Email Templates screen."
 msgstr ""
 
 #. translators: %s is the email address
 #: includes/opt-out.php:53
+#: includes/opt-out.php:89
 #, php-format
 msgid "You have successfully opted out of abandoned cart recovery emails for the email address %s."
 msgstr ""
@@ -324,36 +393,44 @@ msgid "There was an error processing your opt-out request. The email address %s 
 msgstr ""
 
 #: includes/privacy.php:15
+#: includes/privacy.php:20
 msgid "When a user begins membership checkout but does not complete the purchase within a specified time, the cart is considered abandoned."
 msgstr ""
 
 #: includes/privacy.php:16
+#: includes/privacy.php:21
 msgid "An email is sent to the user to complete the purchase via a link provided in the email."
 msgstr ""
 
 #: includes/privacy.php:17
+#: includes/privacy.php:22
 msgid "The user can unsubscribe from abandoned cart emails using the unsubscribe link in the emails."
 msgstr ""
 
 #. translators: %s: Privacy Policy page URL
 #: includes/privacy.php:43
+#: includes/privacy.php:48
 #, php-format
 msgid "Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a href=\"%s\" target=\"_blank\">privacy policy</a>."
 msgstr ""
 
 #: pmpro-abandoned-cart-recovery.php:56
+#: pmpro-abandoned-cart-recovery.php:60
 msgid "View Documentation"
 msgstr ""
 
 #: pmpro-abandoned-cart-recovery.php:56
+#: pmpro-abandoned-cart-recovery.php:60
 msgid "Docs"
 msgstr ""
 
 #: pmpro-abandoned-cart-recovery.php:57
+#: pmpro-abandoned-cart-recovery.php:61
 msgid "Visit Customer Support Forum"
 msgstr ""
 
 #: pmpro-abandoned-cart-recovery.php:57
+#: pmpro-abandoned-cart-recovery.php:61
 msgid "Support"
 msgstr ""
 
@@ -363,61 +440,81 @@ msgstr ""
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:176
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:196
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:200
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:201
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:205
 msgid "Default Level"
 msgstr ""
 
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:92
 #: includes/emails.php:44
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:94
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:99
+#: includes/emails.php:48
 msgid "<p><a href=\"!!checkout_url!!\">Click here to complete membership checkout now</a>.</p>"
 msgstr ""
 
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:94
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:96
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:101
 msgid "<p>If you do not want to receive any more emails about this attempted checkout, <a href=\"!!opt_out_url!!\">click here to opt out of future emails</a>.</p>"
 msgstr ""
 
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:94
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:100
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:105
 msgid "<p>If you do not want to receive any more emails about this attempted checkout, <a href=\"!!opt_out_url!!\">click here to opt out of these emails</a>.</p>"
 msgstr ""
 
 #: includes/emails.php:46
+#: includes/emails.php:50
 msgid "If you do not want to receive any more emails about this attempted checkout, <a href=\"!!opt_out_url!!\">click here to opt out of future emails</a>."
 msgstr ""
 
 #: includes/emails.php:57
+#: includes/emails.php:61
 msgid "If you do not want to receive any more emails about this attempted checkout, <a href=\"!!opt_out_url!!\">click here to opt out of these emails</a>."
 msgstr ""
 
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:98
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:103
 msgid "We noticed you started signing up for {{ membership_level_name }} membership but did not complete the checkout process."
 msgstr ""
 
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:100
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:105
 msgid "<p><a href=\"{{ checkout_url }}\">Click here to complete membership checkout now</a>.</p>"
 msgstr ""
 
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:102
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-1.php:107
 msgid "<p>If you do not want to receive any more emails about this attempted checkout, <a href=\"{{ opt_out_url }}\">click here to opt out of future emails</a>.</p>"
 msgstr ""
 
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:74
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:79
 msgid "Reminder: Your {{ sitename }} membership is waiting."
 msgstr ""
 
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:102
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:107
 msgid "It looks like you may have forgotten to complete checkout for the {{ membership_level_name }} membership at {{ sitename }}."
 msgstr ""
 
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:106
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-2.php:111
 msgid "<p>If you do not want to receive any more emails about this attempted checkout, <a href=\"{{ opt_out_url }}\">click here to opt out of these emails</a>.</p>"
 msgstr ""
 
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-3.php:74
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-3.php:79
 msgid "Final Reminder: Complete membership checkout at {{ sitename }} today."
 msgstr ""
 
 #: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-3.php:91
+#: classes/email-templates/class-pmpro-email-template-pmproacr-reminder-3.php:96
 msgid "This is your final reminder to complete your {{ membership_level_name }} membership checkout at {{ sitename }}."
+msgstr ""
+
+#: includes/opt-out.php:105
+msgid "There was an error processing your opt-out request. This opt-out link is not valid."
 msgstr ""
