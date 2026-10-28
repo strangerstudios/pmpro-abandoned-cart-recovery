@@ -65,6 +65,17 @@ class PMPro_Email_Template_PMProACR_Reminder_2 extends PMPro_Email_Template {
 	}
 
 	/**
+	 * Get the email category so that members can opt out of this email.
+	 *
+	 * @since TBD
+	 *
+	 * @return string The email category slug.
+	 */
+	public static function get_email_category() {
+		return 'promotional';
+	}
+
+	/**
 	 * Get the default subject for the email.
 	 *
 	 * @since 1.0
@@ -104,11 +115,18 @@ class PMPro_Email_Template_PMProACR_Reminder_2 extends PMPro_Email_Template {
 
 ' . wp_kses( __( '<p>If you do not want to receive any more emails about this attempted checkout, <a href="!!opt_out_url!!">click here to opt out of these emails</a>.</p>', 'pmpro-abandoned-cart-recovery' ), $allowed_html );
 		}
-		return '<p>' . esc_html__( 'It looks like you may have forgotten to complete checkout for the {{ membership_level_name }} membership at {{ sitename }}.', 'pmpro-abandoned-cart-recovery' ) . '</p>
+		$body = '<p>' . esc_html__( 'It looks like you may have forgotten to complete checkout for the {{ membership_level_name }} membership at {{ sitename }}.', 'pmpro-abandoned-cart-recovery' ) . '</p>
 
-<p><a href="{{ checkout_url }}">' . esc_html__( 'Complete Your Purchase Now', 'pmpro-abandoned-cart-recovery' ) . '</a></p>
+<p><a href="{{ checkout_url }}">' . esc_html__( 'Complete Your Purchase Now', 'pmpro-abandoned-cart-recovery' ) . '</a></p>';
+
+		// PMPro adds unsubscribe links to the email footer when it has email preferences.
+		if ( ! pmproacr_use_pmpro_email_preferences() ) {
+			$body .= '
 
 ' . wp_kses( __( '<p>If you do not want to receive any more emails about this attempted checkout, <a href="{{ opt_out_url }}">click here to opt out of these emails</a>.</p>', 'pmpro-abandoned-cart-recovery' ), $allowed_html );
+		}
+
+		return $body;
 	}
 
 	/**

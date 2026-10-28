@@ -65,6 +65,17 @@ class PMPro_Email_Template_PMProACR_Reminder_3 extends PMPro_Email_Template {
 	}
 
 	/**
+	 * Get the email category so that members can opt out of this email.
+	 *
+	 * @since TBD
+	 *
+	 * @return string The email category slug.
+	 */
+	public static function get_email_category() {
+		return 'promotional';
+	}
+
+	/**
 	 * Get the default subject for the email.
 	 *
 	 * @since 1.0

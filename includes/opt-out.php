@@ -17,6 +17,43 @@ function pmproacr_get_opt_out_key( $user ) {
 }
 
 /**
+ * Check whether PMPro handles opt-outs with its email preferences.
+ *
+ * The opt-out link and user meta in this file are only used with PMPro versions that don't have email preferences.
+ *
+ * @since TBD
+ *
+ * @return bool
+ */
+function pmproacr_use_pmpro_email_preferences() {
+	return function_exists( 'pmpro_get_email_preferences_url' );
+}
+
+/**
+ * Check whether a user has opted out of abandoned cart emails.
+ *
+ * @since TBD
+ *
+ * @param int $user_id The user ID.
+ * @return bool
+ */
+function pmproacr_is_user_opted_out( $user_id ) {
+	// Old opt-outs. With PMPro email preferences, these are only used until this site's upgrade moves them over.
+	$old_opt_outs_moved = pmproacr_use_pmpro_email_preferences() && get_option( 'pmproacr_db_version' ) >= 1.1;
+	if ( ! $old_opt_outs_moved && ! empty( get_user_meta( $user_id, 'pmproacr_opt_out', true ) ) ) {
+		return true;
+	}
+
+	if ( pmproacr_use_pmpro_email_preferences() ) {
+		// All three reminders are in the same category.
+		$email_category = pmpro_get_email_template_category( 'pmproacr_reminder_1' );
+		return ! empty( $email_category ) && pmpro_is_user_opted_out_of_email_category( $user_id, $email_category );
+	}
+
+	return false;
+}
+
+/**
  * Get the URL that a user can visit to opt out of abandoned cart emails.
  *
  * @since 1.0.4
@@ -25,6 +62,10 @@ function pmproacr_get_opt_out_key( $user ) {
  * @return string The opt-out URL.
  */
 function pmproacr_get_opt_out_url( $user ) {
+	if ( pmproacr_use_pmpro_email_preferences() ) {
+		return pmpro_get_email_preferences_url( $user->ID, 'promotional' );
+	}
+
 	return add_query_arg(
 		array(
 			'pmproacr_opt_out'     => urlencode( $user->user_email ),
@@ -55,6 +96,12 @@ function pmproacr_process_opt_out() {
 		// Show a banner that the opt-out has failed.
 		add_action( 'wp_footer', 'pmproacr_show_opt_out_failed_banner' );
 		return;
+	}
+
+	// Send links from emails sent before PMPro had email preferences to the PMPro unsubscribe page.
+	if ( pmproacr_use_pmpro_email_preferences() ) {
+		wp_safe_redirect( pmproacr_get_opt_out_url( $user ) );
+		exit;
 	}
 
 	// Update the user meta to opt out.

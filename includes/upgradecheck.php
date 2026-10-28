@@ -23,6 +23,45 @@ function pmproacr_check_for_upgrades() {
 		pmproacr_db_delta();
 		update_option( 'pmproacr_db_version', 1 );
 	}
+
+	// Move opt-outs from the old opt-out link to PMPro email preferences. Waits until PMPro has email preferences.
+	if ( $db_version < 1.1 && pmproacr_use_pmpro_email_preferences() ) {
+		if ( pmproacr_migrate_opt_outs() ) {
+			update_option( 'pmproacr_db_version', 1.1 );
+		}
+	}
+}
+
+/**
+ * Move users who opted out with the old opt-out link to PMPro email preferences.
+ *
+ * Abandoned cart emails are in the "Offers and promotions" email category.
+ *
+ * @since TBD
+ *
+ * @return bool True if every user was moved, false if any should be tried again later.
+ */
+function pmproacr_migrate_opt_outs() {
+	global $wpdb;
+
+	$user_ids = $wpdb->get_col( "SELECT user_id FROM {$wpdb->usermeta} WHERE meta_key = 'pmproacr_opt_out'" ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- One-time upgrade.
+	$migrated_all = true;
+	foreach ( $user_ids as $user_id ) {
+		pmpro_update_user_email_opt_out( (int) $user_id, 'promotional', true, 'link' );
+
+		// Only remove the old opt-out once the new one is saved. Otherwise, try again next time.
+		if ( ! pmpro_get_user_email_opt_out( (int) $user_id, 'promotional' ) ) {
+			$migrated_all = false;
+			continue;
+		}
+
+		// The old opt-out is shared by every site in a network, but PMPro email preferences are per site. Keep it so other sites can move it too.
+		if ( ! is_multisite() ) {
+			delete_user_meta( (int) $user_id, 'pmproacr_opt_out' );
+		}
+	}
+
+	return $migrated_all;
 }
 
 /**
@@ -70,7 +109,7 @@ function pmproacr_db_delta() {
 	dbDelta( $sqlQuery );
 }
 
-// Check if the DB needs to be upgraded.
+// Check if the DB needs to be upgraded. Runs on init so that upgrades can use pluggable functions.
 if ( is_admin() || defined('WP_CLI') ) {
-	pmproacr_check_for_upgrades();
+	add_action( 'init', 'pmproacr_check_for_upgrades', 0 );
 }
